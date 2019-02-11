@@ -1,5 +1,3 @@
-  const _requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback){ setTimeout(callback, 10) };
-  const PI2 = Math.PI * 2;
   let imageData, renderCount;
   let index, startIndex, layerIndex;
   let origin, particle, touch, touchIndex, rect;
@@ -13,7 +11,6 @@
   export default class NextParticle {
 
     constructor(optionsParam) {
-      console.log('hey')
       let options = {};
       if (optionsParam) {
         if (optionsParam.nodeName) {

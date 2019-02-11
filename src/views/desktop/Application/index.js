@@ -80,4 +80,8 @@ export default class DesktopAppView {
     Signals.onScrollWheel.dispatch()
   }
 
+  // Update ------
+  update() {
+    this._home.update()
+  }
 }

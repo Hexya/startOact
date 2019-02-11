@@ -8,6 +8,7 @@ import States from 'core/States'
 import Signals from 'core/Signals' /* exported Signals */
 import Router from 'core/Router'
 import LoaderView from 'views/common/Loader'
+import raf from 'raf'
 
 class Main {
 
@@ -17,6 +18,8 @@ class Main {
 
     this._loader = this._setupLoader()
     Signals.onAssetsLoaded.add(this.onAssetsLoaded)
+
+    raf(this._update)
   }
 
   _setupLoader() {
@@ -75,6 +78,15 @@ class Main {
   updatePage(page) {
     if (this._application) {
       this._application.updatePage(page)
+    }
+  }
+
+  // Update -----------
+
+  @autobind
+  _update() {
+    if (this._application) {
+      this._application.update()
     }
   }
 }
